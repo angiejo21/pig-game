@@ -20,6 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 /* LAYOUT */
@@ -43,6 +44,81 @@ main {
   flex-direction: column;
   align-items: center;
   transition: all 0.75s;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.modal {
+  width: 100rem;
+  height: 60rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 9px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal__input {
+  border: none;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 1.8rem;
+  padding: 0.7rem 2.5rem;
+  margin-bottom: 1rem;
+}
+.modal__title {
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.modal__text {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.btn--start {
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+.btn--start:hover,
+.btn--start:active,
+.btn--start:visited {
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  color: #fff;
 }
 
 /* ELEMENTS */
@@ -156,7 +232,7 @@ main {
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  transition: all.2s;
+  transition: all 0.2s;
 }
 
 .player--winner {
@@ -170,4 +246,9 @@ main {
 
 .hidden {
   display: none;
+}
+
+::selection {
+  background-color: #753682;
+  color: #fff;
 }

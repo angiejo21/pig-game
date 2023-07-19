@@ -7,21 +7,15 @@ const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
 const current0El = document.getElementById('current--0');
 const current1El = document.getElementById('current--1');
+const input0 = document.getElementById('player0-name');
+const input1 = document.getElementById('player1-name');
 
 const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
-
-//Starting conditions
-// score0El.textContent = 0;
-// score1El.textContent = 0;
-// diceEl.classList.add('hidden');
-
-// const scores = [0, 0]; //Punti finali
-// let currentScore = 0;
-// let activePlayer = 0;
-// let isPlaying = true;
+const btnStart = document.querySelector('.btn--start');
+const modal = document.querySelector('.overlay');
 
 let scores, currentScore, activePlayer, isPlaying;
 
@@ -103,3 +97,11 @@ btnHold.addEventListener('click', () => {
 });
 
 btnNew.addEventListener('click', init);
+
+btnStart.addEventListener('click', () => {
+  player0EL.querySelector('.name').textContent = input0.value;
+  if (input1.value) {
+    player1EL.querySelector('.name').textContent = input1.value;
+  }
+  modal.classList.add('hidden');
+});
