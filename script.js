@@ -36,6 +36,7 @@ function init() {
   //settare l'active player e aggiungere la classe active
   activePlayer = 0;
   player0EL.classList.add('player--active');
+  player1EL.classList.remove('player--active');
   //Azzerare scores
   scores = [0, 0];
   //Azzerare il current score
@@ -79,7 +80,7 @@ btnHold.addEventListener('click', () => {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     //2.Check if player's score is >= 100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       //Finish game
       isPlaying = false;
       diceEl.classList.add('hidden');
@@ -99,7 +100,9 @@ btnHold.addEventListener('click', () => {
 btnNew.addEventListener('click', init);
 
 btnStart.addEventListener('click', () => {
-  player0EL.querySelector('.name').textContent = input0.value;
+  if (input0.value) {
+    player0EL.querySelector('.name').textContent = input0.value;
+  }
   if (input1.value) {
     player1EL.querySelector('.name').textContent = input1.value;
   }
